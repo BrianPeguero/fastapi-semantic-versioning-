@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "fastapi-semantic-versioning-"
+version = "0.1.0"
+description = ""
+authors = ["Brian Peguero <brianpeguero@gmail.com>"]
+readme = "README.md"
+
+[tool.semantic_release]
+branch = "main"
+version_toml = "pyproject.toml:tool.poetry.version"
+version_source = "tag"
+commit_version_number = true # required for version_source = "tag"
+tag_commit = true
+upload_to_pypi = false
+upload_to_release = false
+hvcs = "github" # gitlab is also supported
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["all"], version = "^0.108.0"}
+uvicorn = {extras = ["standard"], version = "^0.25.0"}
+gunicorn = "^21.2.0"
+sqlalchemy = "^2.0.24"
+psycopg2-binary = "^2.9.9"
+pendulum = "^3.0.0"
+alembic = "^1.13.1"
+httpx = "^0.26.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.12.1"
+pytest = "^7.4.3"
+isort = "^5.13.2"
+mypy = "^1.8.0"
+pylint = "^3.0.3"
+commitizen = "^3.13.0"
+pre-commit = "^3.6.0"
+
+
+[tool.poetry.group.semver.dependencies]
+python-semantic-release = "^8.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
