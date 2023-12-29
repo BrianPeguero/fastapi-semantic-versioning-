@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.semantic_release]
 branch = "main"
-version_toml = version_toml = ["pyproject.toml:version"]
+version_toml = ["pyproject.toml:version"]
 version_source = "tag"
 commit_version_number = true # required for version_source = "tag"
 tag_commit = true
